@@ -9,7 +9,8 @@ app.use('/api', api);
 
 // корень сайта
 app.use('/', (req, res) => {
-				res.send(public/index.html);
+// res.render('public/index');
+res.end();
 });
 
 app.listen(3000, () => {console.log('server started')});

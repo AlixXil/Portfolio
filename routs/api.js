@@ -10,11 +10,12 @@ firebase.initializeApp({
 });
 
 
-router.get('/works', (req, res) => {
+router.get('/works', (req, response) => {
 	firebase.database(firebase.app()).ref('works/').once('value').then((res) =>{
 		if(res.exists()) {
 			let data = res.val();
-			console.log(data)
+			console.log("запрос списка работ");
+			response.json(JSON.stringify(data));
 		}
 		else console.log("error")
 	})
