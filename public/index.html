@@ -1,16 +1,91 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="style.css">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style.css" />
 		<title>Портфолио верстальщика</title>
 	</head>
-	<body>
-	  <h1>Прототип портфолио</h1>  
 
-  	<input type="submit" id="getWorks" value="go">
-	  <div class="result"></div><!-- /.result -->
+<body>
+	<div class="content">
+		<section class="main">
+			<div class="overlay"></div>
+			<div class="title">
+				<h3>Добрый день. Я, Алексей, </h3>
+				<h1> 
+					<span class="showIn-7">H</span>
+					<span class="showIn-1">T</span>
+					<span class="showIn-16">M</span>
+					<span class="showIn-11">L</span>
+					<span class="showIn-6">-</span>
+					<span class="showIn-15">в</span>
+					<span class="showIn-3">е</span>
+					<span class="showIn-8">р</span>
+					<span class="showIn-13">с</span>
+					<span class="showIn-10">т</span>
+					<span class="showIn-2">а</span>
+					<span class="showIn-5">л</span>
+					<span class="showIn-9">ь</span>
+					<span class="showIn-14">щ</span>
+					<span class="showIn-4">и</span>
+					<span class="showIn-12">к</span>
+				</h1>
+				<h3>готов сверстать Ваш сайт</h3>
+			</div>
+			<a class="overlay__slideBtn" href="#work"></a>
+		</section>
+		<section class="work" id="work">
+			<div class="wrapper">
+				<h2 class="section-title">Мои работы</h2>
+				<div class="works-list">
+					<div class="loader"></div><!-- /.loader -->
+				</div>
+			</div>
+		</section>
+		<section class="tehnologies">
+			<div class="wrapper">
+				<h2 class="section-title">Используемые технологии</h2>
+				<div class="technologies__list">
+					<div class="technologies__item">
+						<img src="./img/technologies/html5.svg" alt="" />
+						<h4 class="technologies__title">Html 5</h4>
+					</div>
+					<div class="technologies__item">
+						<img src="./img/technologies/sass.svg" alt="" />
+						<h4 class="technologies__title">Sass</h4>
+					</div>
+					<div class="technologies__item">
+						<img src="./img/technologies/css3.svg" alt="" />
+						<h4 class="technologies__title">Css 3</h4> 
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contacts">
+			<div class="wrapper">
+				<h2 class="section-title">Связь со мной</h2>
+				<form class="callback" action="#" method="POST" id="callbackForm">
+					<div class="row">
+						<input type="text" id="userName" placeholder="Ваше имя" />
+						<input type="email" id="email" placeholder="E-mail" />
+					</div>
+					<input type="text" id="theme" placeholder="Тема" />
+					<textarea id="message" placeholder="Сообщение" rows="7"></textarea>
+					<button
+				type="submit" onclick="return saveToFirebase(event)">Отправить</button>
+				</form>
+				<div id="contactsResult"></div>
+				<div class="contacts__links">
+					<a href="https://vk.com/id581854592" target="_blank">
+						<img src="./img/vk.svg" alt="Vk"/>
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
 
-		<script src="script.js"></script>
+	<script src="./script.js"></script>
 </body>
 </html>
