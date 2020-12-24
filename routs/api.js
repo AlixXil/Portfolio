@@ -29,4 +29,19 @@ router.get('/works', (req, response) => {
 	}
 })
 
+// добавление сообщения
+router.post('/addMessage', (req, res) => {
+	console.log('work')
+	res.end();
+})
+
+function writeMessageData(msgId, name, email, subject, message) {
+	firebase.database().ref('messages/' + msgId).set({
+		username: name,
+		email: email,
+		subject: subject,
+		message: message
+	});
+};
+
 module.exports = router;

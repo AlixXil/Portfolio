@@ -36,3 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 })
 
+async function saveToFirebase(event) {
+	try {
+		event.preventDefault()
+		var userName = document.getElementById('userName').value.trim();
+		var message = document.getElementById('message').value.trim();
+		var theme = document.getElementById('theme').value.trim();
+		var email = document.getElementById('email').value.trim();
+		var msgId =  Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+
+		if (userName.length > 0) {
+			await fetch('/api/addMessage', {
+				method: 'POST',
+				body: JSON.stringify({userName, message, theme, email, msgId})
+			})
+		}
+		document.getElementById('callbackForm').style.display = 'none';
+
+		document.getElementById('contactsResult').innerHTML = '<p>Ваше сообщение отправлено, в ближайшее время я с Вами свяжусь.</p>';
+
+		console.log('msgId: ' + msgId);
+		return false;
+	}
+	catch(er) {
+		console.log(er.message)
+	}
+};
