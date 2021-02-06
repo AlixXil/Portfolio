@@ -77,19 +77,21 @@ section {
 	width: 100%; }
 
 .main {
-	height: 90vh;
+	height: 100vh;
 	background: url("../img/bg.jpg") no-repeat;
 	background-position: 50% 0px;
 	background-attachment: fixed;
 	background-size: cover;
 	color: #eee;
-	position: relative; }
+	position: relative; 
+	overflow: hidden;
+}
 	.main .overlay {
 		position: absolute;
 		left: 0;
 		top: 0;
 		right: 0;
-		bottom: 0;
+		bottom: -50px;
 		background-color: rgba(44, 62, 80, 0.3);
 		background: url("../img/pattern.png") repeat;
 		z-index: 0; }
@@ -138,14 +140,19 @@ section {
 		width: 100%;
 		text-align: center; }
 		.main .title h1 {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
 			padding: .5em 0; }
 			.main .title h1 span {
 				font-size: 2.3em;
 				margin: .06em;
 				opacity: .2; }
 		.main .title h3 {
-			font-family: serif;
-			font-size: 1.2em;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 1.4em;
+			font-weight: 400;
+			letter-spacing: 3px;
 			padding: 0;
 			opacity: .2;
 			animation: 1s 2s show forwards; }
@@ -154,9 +161,14 @@ section {
 				top: 20vh; }
 				.main .title h1 span {
 					font-size: 1.5em; } }
+		@media (max-width: 364px) {
+			.main .title h1 span {
+				font-size: 1.3em; }
+		}
 
 .work {
-	padding-bottom: 4em; }
+	padding-bottom: 4em;
+}
 	.works-list {
 		display: flex;
 		justify-content: center;
@@ -164,9 +176,52 @@ section {
 	.work .item {
 		margin: .4em;
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		/* flex: 1 1 200px; */
 		width: 29%; }
-		.work .item img {
-			width: 100%; }
+		.work .item__img {
+			width: 100%;
+			padding-bottom: 150%;
+			position: relative;
+		}
+		.work .item__img img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%; 
+			height: 100%;
+			object-fit: cover;
+		}
+		.work .item__info {
+			background: #fff;
+			flex: 1 1 100%;
+			min-height: 150px;
+			padding: 10px 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			transition: .5s; }
+		.work .item__title {
+			font-size: 1.5em;
+			font-weight: 400;
+			padding-bottom: .5em; 
+			text-align: center;}
+		.work .item__text {
+			text-align: center;
+			display: block;
+			padding: .4em; }
+		.work .item__link {
+			display: inline-block;
+			padding: .5em 2em;
+			margin-top: 1em;
+			text-decoration: none;
+			color: #000;
+			font-size: 1.1em;
+			border: 1px solid #000;
+			border-radius: 10px; }
+	@media (min-width: 886px) {
 		.work .item__info {
 			background: rgba(68, 68, 68, 0.8);
 			position: absolute;
@@ -180,33 +235,32 @@ section {
 			align-items: center;
 			opacity: 0;
 			transition: .5s; }
-		.work .item__title {
-			color: #eee;
-			font-size: 1.5em;
-			font-weight: 400;
-			padding-bottom: .5em; }
-		.work .item__text {
-			text-align: center;
-			display: block;
-			color: #e9e9e9;
-			padding: .4em; }
-		.work .item__link {
-			display: inline-block;
-			padding: 1em 2em;
-			margin-top: 1em;
-			text-decoration: none;
-			color: #eee;
-			font-size: 1.1em;
-			border: 1px solid #eee;
-			border-radius: 15px; }
 		.work .item:hover .item__info {
 			opacity: .8;
 			box-shadow: 0 0 10px 5px #333; }
-	@media (max-width: 600px) {
+		.work .item__link {
+			border: 1px solid #eee;
+			color: #eee;
+		}
+		.work .item__text {
+			color: #e9e9e9;}
+		.work .item__title {
+			color: #eee;
+		}
+	}
+	@media (max-width: 886px) {
+		.work .item__img {
+			padding-bottom: 100%;
+		}
 		.work .works-list {
 			justify-content: center; }
 		.work .item {
-			width: 47%; } }
+			width: 47%; } 
+		.work .item__info {
+			margin-top: 10px;
+			box-shadow: 0 0 10px 1px #ccc; 
+		}
+	}
 	@media (max-width: 500px) {
 		.work .item {
 			width: 90%; } }
@@ -215,14 +269,16 @@ section {
 	margin-bottom: 5em; }
 	.technologies__list {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: flex-end;
+		column-gap: 20px;
 		padding-bottom: 2em;
 		overflow: hidden; }
 	.technologies__item {
 		transition: .5s; }
 		.technologies__item img {
-			width: 100%; }
+			height: 100px;
+		}
 		.technologies__item:hover {
 			transform: scale(1.1); }
 	.technologies__title {

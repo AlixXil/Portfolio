@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	function addElement(data) {
 		return `
 		<div class="item">
-			<img src="${data.img}", alt="${data.title}">
+			<div class="item__img">
+				<img src="${data.img}", alt="${data.title}">
+			</div>
 			<div class="item__info">
 				<h4 class="item__title">${data.title}</h4>
 				
